@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Minecraft Note Block Music Builder — Instruments, Notes & Song Patterns</title>
+<meta name="description" content="Complete Minecraft note block music guide. All 16 instruments, required blocks, 25 pitch notes, and step-by-step patterns for famous songs. Free reference tool.">
+<meta name="keywords" content="Minecraft note block music, Minecraft note block instruments, Minecraft music builder, note block song patterns, Minecraft note block guide, how to build music in Minecraft">
+<link rel="canonical" href="https://varsansri.github.io/minecraft-noteblock-music-builder/">
+<meta property="og:title" content="Minecraft Note Block Music Builder — Complete Guide">
+<meta property="og:description" content="All 16 note block instruments, pitch reference, and famous song patterns. Build music in Minecraft like a pro.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Minecraft Note Block Music Builder","description":"Complete reference guide for Minecraft note blocks including all instruments, pitch notes, and famous song patterns.","url":"https://varsansri.github.io/minecraft-noteblock-music-builder/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0"}}</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0a0f;--surface:#111118;--surface2:#181820;
+  --accent:#00ff88;--accent-dim:rgba(0,255,136,0.08);--accent-border:rgba(0,255,136,0.25);
+  --text:#efefef;--muted:#6b6b80;--border:rgba(255,255,255,0.07);
+  --green:#00e87a;--yellow:#ffd93d;--red:#ff4d4d;
+  --radius:14px;--ease:0.2s ease;
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;min-height:100vh;padding-bottom:76px;line-height:1.5}
+.wrap{max-width:520px;margin:0 auto;padding:16px 14px 32px}
+.header{text-align:center;padding:22px 0 18px}
+.badge{display:inline-block;background:var(--accent-dim);border:1px solid var(--accent-border);color:var(--accent);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 14px;border-radius:20px;margin-bottom:14px}
+h1{font-size:clamp(20px,5.5vw,26px);font-weight:800;line-height:1.25;margin-bottom:8px}
+h1 .hl{color:var(--accent)}
+.tagline{color:var(--muted);font-size:13px;max-width:310px;margin:0 auto}
+h2{font-size:13px;color:var(--muted);font-weight:400;margin-top:4px}
+/* Tabs */
+.tabs{display:flex;gap:4px;margin-bottom:14px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:4px}
+.tab{flex:1;padding:9px 6px;border:none;background:transparent;color:var(--muted);font-size:12px;font-weight:600;border-radius:7px;cursor:pointer;transition:all var(--ease);-webkit-tap-highlight-color:transparent}
+.tab.active{background:var(--accent);color:#000;font-weight:800}
+.tab-content{display:none}
+.tab-content.active{display:block;animation:fadeUp .25s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+/* Instruments */
+.inst-grid{display:flex;flex-direction:column;gap:8px}
+.inst-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px 14px;display:flex;align-items:center;gap:12px}
+.inst-icon{font-size:24px;flex-shrink:0;width:40px;text-align:center}
+.inst-info{flex:1}
+.inst-name{font-size:13px;font-weight:700;margin-bottom:2px}
+.inst-block{font-size:11px;color:var(--muted)}
+.inst-tag{font-size:10px;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:10px;flex-shrink:0}
+.tag-low{background:rgba(245,166,35,.15);color:#f5a623;border:1px solid rgba(245,166,35,.3)}
+.tag-mid{background:rgba(0,212,255,.1);color:#00d4ff;border:1px solid rgba(0,212,255,.25)}
+.tag-high{background:var(--accent-dim);color:var(--accent);border:1px solid var(--accent-border)}
+/* Notes */
+.note-intro{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:12px;font-size:12px;color:var(--muted);line-height:1.6}
+.note-intro strong{color:var(--accent)}
+.note-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.note-cell{
+  background:var(--surface);border:1px solid var(--border);border-radius:8px;
+  padding:8px 4px;text-align:center;cursor:pointer;transition:all var(--ease);
+  -webkit-tap-highlight-color:transparent;
+}
+.note-cell:active{transform:scale(.93)}
+.note-cell.white-key{background:var(--surface2)}
+.note-cell.black-key{background:#0a0a0f;border-color:rgba(255,255,255,.12)}
+.note-cell .nc-num{font-size:9px;color:var(--muted);margin-bottom:2px}
+.note-cell .nc-note{font-size:13px;font-weight:700;color:var(--text)}
+.note-cell .nc-pitch{font-size:9px;color:var(--muted)}
+.note-cell.active-note{border-color:var(--accent);background:var(--accent-dim)}
+.note-cell.active-note .nc-note{color:var(--accent)}
+/* Songs */
+.song-select{width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:14px;padding:10px 14px;outline:none;margin-bottom:12px;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6' fill='%23666'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:34px}
+.song-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px}
+.song-title{font-size:15px;font-weight:800;margin-bottom:4px}
+.song-meta{font-size:11px;color:var(--muted);margin-bottom:14px}
+.song-steps{display:flex;flex-direction:column;gap:6px}
+.step{background:var(--surface2);border-radius:8px;padding:10px 12px;display:flex;gap:10px;align-items:flex-start}
+.step-num{background:var(--accent-dim);border:1px solid var(--accent-border);color:var(--accent);font-size:10px;font-weight:800;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.step-text{font-size:12px;color:var(--text);line-height:1.5}
+.step-notes{font-size:11px;color:var(--accent);font-weight:700;margin-top:3px;letter-spacing:.5px}
+.notes-row{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
+.note-pill{background:var(--accent-dim);border:1px solid var(--accent-border);color:var(--accent);font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px}
+.tip-box{background:rgba(255,217,61,.06);border:1px solid rgba(255,217,61,.2);border-radius:8px;padding:12px;margin-top:12px;font-size:12px;color:#ffd93d;line-height:1.5}
+.section-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin:16px 0 10px}
+.tg-cta{background:linear-gradient(135deg,rgba(0,255,136,.06),rgba(0,255,136,.01));border:1px solid var(--accent-border);border-radius:var(--radius);padding:18px;margin-bottom:12px}
+.tg-title{font-size:14px;font-weight:700;margin-bottom:6px}
+.tg-body{font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:14px}
+.tg-body strong{color:var(--accent)}
+.tg-btn{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--accent);color:#000;font-weight:800;font-size:13px;padding:12px 20px;border-radius:9px;text-decoration:none;transition:opacity var(--ease);-webkit-tap-highlight-color:transparent}
+.tg-btn:active{opacity:.85}
+.share-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;margin-top:12px}
+.share-label{font-size:10px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+.share-btns{display:flex;gap:8px}
+.sb{flex:1;padding:10px;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;border:1px solid var(--border);background:var(--surface2);color:var(--text);transition:all var(--ease);text-align:center;-webkit-tap-highlight-color:transparent}
+.sb.wa{background:rgba(37,211,102,.08);border-color:rgba(37,211,102,.25);color:#25d366}
+.sb.cp{color:var(--accent);border-color:var(--accent-border)}
+.sb:active{transform:scale(.97)}
+.sticky{position:fixed;bottom:0;left:0;right:0;background:rgba(10,10,15,.96);border-top:1px solid var(--accent-border);padding:10px 16px;display:flex;align-items:center;gap:12px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);z-index:200}
+.sticky .st{font-size:11px;color:var(--muted);flex:1;line-height:1.4}
+.sticky .st strong{color:var(--accent);font-size:12px;display:block}
+.sticky-btn{background:var(--accent);color:#000;font-weight:800;font-size:11px;padding:8px 14px;border-radius:8px;text-decoration:none;white-space:nowrap;-webkit-tap-highlight-color:transparent}
+footer{text-align:center;padding:12px;font-size:11px;color:var(--muted);opacity:.7}
+footer a{color:var(--accent);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="header">
+    <div class="badge">🎮 Minecraft Music Tool</div>
+    <h1>Note Block <span class="hl">Music Builder</span></h1>
+    <h2>How to build any song with Minecraft note blocks</h2>
+    <p class="tagline">All 16 instruments, 25 pitch notes, and famous song patterns — all in one place.</p>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('instruments',this)">🎸 Instruments</button>
+    <button class="tab" onclick="switchTab('notes',this)">🎵 Notes</button>
+    <button class="tab" onclick="switchTab('songs',this)">🎶 Songs</button>
+  </div>
+
+  <!-- TAB 1: INSTRUMENTS -->
+  <div class="tab-content active" id="tab-instruments">
+    <div class="section-label">All 16 Note Block Instruments</div>
+    <div class="inst-grid" id="instGrid"></div>
+    <div class="tip-box" style="margin-top:12px">💡 <strong>Tip:</strong> Right-click an air note block to tune it. Left-click to play the current note. Place the correct block UNDER the note block to change the instrument.</div>
+  </div>
+
+  <!-- TAB 2: NOTES -->
+  <div class="tab-content" id="tab-notes">
+    <div class="note-intro">All note blocks share the same <strong>25-note range: F#1 to F#3</strong> (two octaves). Click any note to see its details. Use <strong>right-click</strong> in-game to cycle through all 25 pitches.</div>
+    <div class="section-label">25 Pitches (Right-click count → note)</div>
+    <div class="note-grid" id="noteGrid"></div>
+    <div id="noteDetail" style="display:none;background:var(--surface);border:1px solid var(--accent-border);border-radius:10px;padding:14px;margin-top:12px;text-align:center"></div>
+    <div class="tip-box">💡 <strong>Octave tip:</strong> Notes 1–12 = octave 1 (low), Notes 13–24 = octave 2 (high), Note 25 = F#3 (highest). The middle of the range (notes 12–13) is easiest to play with.</div>
+  </div>
+
+  <!-- TAB 3: SONGS -->
+  <div class="tab-content" id="tab-songs">
+    <div class="section-label">Choose a Song to Build</div>
+    <select class="song-select" id="songSelect" onchange="loadSong()">
+      <option value="0">🎵 Sweden — C418 (Minecraft theme)</option>
+      <option value="1">⚔️ Megalovania — Undertale</option>
+      <option value="2">🎮 Super Mario Bros Theme</option>
+      <option value="3">🏴‍☠️ Pirates of the Caribbean</option>
+      <option value="4">🎂 Happy Birthday</option>
+    </select>
+    <div class="song-card" id="songCard"></div>
+  </div>
+
+  <div class="tg-cta" style="margin-top:14px">
+    <div class="tg-title">Into building things that make money, not just music?</div>
+    <div class="tg-body">From Minecraft builds to <strong>real income strategies</strong> — DTB Academy covers it all. Trading signals, freelance tips, and money mindset. Join free on Telegram.</div>
+    <a href="https://t.me/DTB_Academy" target="_blank" rel="noopener noreferrer" class="tg-btn">📊 Join DTB Academy Free →</a>
+  </div>
+
+  <div class="share-card">
+    <div class="share-label">Share this tool</div>
+    <div class="share-btns">
+      <button class="sb cp" onclick="copyLink(this)">📋 Copy Link</button>
+      <button class="sb wa" onclick="shareWA()">💬 WhatsApp</button>
+    </div>
+  </div>
+
+  <footer>Free Minecraft tools by <a href="https://t.me/DTB_Academy" target="_blank" rel="noopener">DTB Academy</a> · Not affiliated with Mojang</footer>
+</div>
+
+<div class="sticky">
+  <div class="st"><strong>📊 DTB Academy — Free</strong>Daily signals & income strategies →</div>
+  <a href="https://t.me/DTB_Academy" target="_blank" rel="noopener noreferrer" class="sticky-btn">Join Free</a>
+</div>
+
+<script>
+// ── Instruments data ──
+const instruments = [
+  {name:"Harp / Piano",block:"Any other block or Air",icon:"🎹",range:"mid"},
+  {name:"Bass Guitar",block:"Wood Planks",icon:"🎸",range:"low"},
+  {name:"Bass Drum",block:"Stone / Blackstone",icon:"🥁",range:"low"},
+  {name:"Snare Drum",block:"Sand / Gravel / Concrete Powder",icon:"🪘",range:"mid"},
+  {name:"Hi-hat / Click",block:"Glass / Sea Lantern / Beacon",icon:"✨",range:"high"},
+  {name:"Guitar",block:"Wool",icon:"🎵",range:"mid"},
+  {name:"Flute",block:"Clay",icon:"🪈",range:"high"},
+  {name:"Bell",block:"Gold Block",icon:"🔔",range:"high"},
+  {name:"Chime",block:"Packed Ice",icon:"❄️",range:"high"},
+  {name:"Xylophone",block:"Bone Block",icon:"🦴",range:"high"},
+  {name:"Iron Xylophone",block:"Iron Block",icon:"⚙️",range:"mid"},
+  {name:"Cow Bell",block:"Soul Sand",icon:"🐄",range:"mid"},
+  {name:"Didgeridoo",block:"Pumpkin",icon:"🎺",range:"low"},
+  {name:"Bit (8-bit)",block:"Emerald Block",icon:"💎",range:"high"},
+  {name:"Banjo",block:"Hay Bale",icon:"🪕",range:"mid"},
+  {name:"Pling",block:"Glowstone",icon:"💡",range:"high"},
+];
+
+const rangeLabels = {low:"LOW PITCH",mid:"MID PITCH",high:"HIGH PITCH"};
+const rangeTags   = {low:"tag-low",mid:"tag-mid",high:"tag-high"};
+
+const instGrid = document.getElementById('instGrid');
+instruments.forEach(inst => {
+  instGrid.innerHTML += `
+    <div class="inst-card">
+      <div class="inst-icon">${inst.icon}</div>
+      <div class="inst-info">
+        <div class="inst-name">${inst.name}</div>
+        <div class="inst-block">Block under note block: <strong>${inst.block}</strong></div>
+      </div>
+      <div class="inst-tag ${rangeTags[inst.range]}">${rangeLabels[inst.range]}</div>
+    </div>`;
+});
+
+// ── Notes data ──
+const noteNames = ["F#1","G1","G#1","A1","A#1","B1","C2","C#2","D2","D#2","E2","F2","F#2","G2","G#2","A2","A#2","B2","C3","C#3","D3","D#3","E3","F3","F#3"];
+const blackKeys  = [1,3,6,8,10,13,15,18,20,22]; // 0-indexed
+
+const noteGrid = document.getElementById('noteGrid');
+noteNames.forEach((note, i) => {
+  const isBlack = blackKeys.includes(i);
+  const cell = document.createElement('div');
+  cell.className = `note-cell ${isBlack ? 'black-key' : 'white-key'}`;
+  cell.innerHTML = `<div class="nc-num">${i+1}</div><div class="nc-note">${note}</div><div class="nc-pitch">${i < 12 ? 'Oct 1' : i < 24 ? 'Oct 2' : 'Oct 3'}</div>`;
+  cell.onclick = () => showNoteDetail(i, note, isBlack);
+  noteGrid.appendChild(cell);
+});
+
+function showNoteDetail(i, note, isBlack){
+  document.querySelectorAll('.note-cell').forEach(c => c.classList.remove('active-note'));
+  noteGrid.children[i].classList.add('active-note');
+  const d = document.getElementById('noteDetail');
+  d.style.display = 'block';
+  d.innerHTML = `
+    <div style="font-size:28px;font-weight:900;color:var(--accent);margin-bottom:6px">${note}</div>
+    <div style="font-size:12px;color:var(--muted);margin-bottom:10px">Pitch ${i+1} of 25 · ${isBlack ? 'Black key (sharp/flat)' : 'White key (natural)'}</div>
+    <div style="font-size:12px;line-height:1.6;color:var(--text)">Right-click the note block <strong>${i+1} time${i!==0?'s':''}</strong> from default to reach this note.<br>Octave: <strong>${i < 12 ? '1 (Low)' : i < 24 ? '2 (High)' : '3 (Highest)'}</strong></div>`;
+}
+
+// ── Songs data ──
+const songs = [
+  {
+    title:"Sweden — C418",
+    meta:"Minecraft Overworld Theme • Instrument: Harp (any block) • Tempo: Slow",
+    steps:[
+      {text:"Set up a row of note blocks on any block type (harp instrument).",notes:[]},
+      {text:"Main melody — first phrase (right-click count per note block):",notes:["F#1(1)","A1(4)","C#2(7)","F#2(13)","A2(16)","E2(11)","C#2(7)","A1(4)"]},
+      {text:"Second phrase — the dreamy part:",notes:["D2(9)","F#2(13)","A2(16)","D3(21)","C#3(20)","A2(16)","F#2(13)","D2(9)"]},
+      {text:"Add a second row of note blocks on Bone Block (Xylophone) for the high harmony.",notes:["F#2(13)","A2(16)","C#3(20)","F#3(25)"]},
+      {text:"Connect with repeaters set to 2 ticks delay between each note. Loop with a comparator clock.",notes:[]},
+    ]
+  },
+  {
+    title:"Megalovania — Toby Fox",
+    meta:"Undertale • Instrument: Harp + Bass (wood) + Bit (emerald) • Tempo: Fast",
+    steps:[
+      {text:"Main riff — play fast with 1-tick repeaters on harp:",notes:["D2(9)","D2(9)","D3(21)","A2(16)","G#2(15)","G2(14)","F2(12)","D2(9)","F2(12)","G2(14)"]},
+      {text:"Add bass layer under each note (wood planks, same notes one octave down):",notes:["D1(9)","D1(9)","D2(21)","A1(16)","G#1(15)"]},
+      {text:"The iconic intro chant — fast repeating D notes:",notes:["D2×8 fast","D2×8 fast","D2×8 fast"]},
+      {text:"Bridge section:",notes:["C2(7)","C2(7)","C3(19)","G2(14)","F#2(13)","F2(12)","D#2(10)","C2(7)","D#2(10)","F2(12)"]},
+      {text:"Use command block /playsound or a 8-bit instrument (Emerald block) for the electronic layer on top.",notes:[]},
+    ]
+  },
+  {
+    title:"Super Mario Bros Theme",
+    meta:"Nintendo • Instrument: Harp (any block) • Tempo: Fast",
+    steps:[
+      {text:"The iconic opening run — use 1-tick repeaters:",notes:["E2(11)","E2(11)","Rest","E2(11)","Rest","C2(7)","E2(11)","G2(14)","Rest","G1"]},
+      {text:"Main melody phrase 1:",notes:["C2(7)","G1","Rest","E1","Rest","A1(4)","B1(6)","A#1(5)","A1(4)","G1"]},
+      {text:"Main melody phrase 2 (the climb):",notes:["E2(11)","G2(14)","A2(16)","F2(12)","G2(14)","Rest","E2(11)","C2(7)","D2(9)","B1(6)"]},
+      {text:"Underground level feel — add a bass drum (stone) hit on every beat to create rhythm.",notes:[]},
+      {text:"Use a comparator clock at 2.5 ticks for accurate Mario tempo.",notes:[]},
+    ]
+  },
+  {
+    title:"He's a Pirate — Pirates of Caribbean",
+    meta:"Hans Zimmer • Instrument: Harp + Bell (gold) • Tempo: Medium-Fast",
+    steps:[
+      {text:"Heroic main theme — opening:",notes:["A1(4)","C2(7)","D2(9)","A1(4)","C2(7)","E2(11)","A1(4)","C2(7)","D2(9)","F2(12)","E2(11)"]},
+      {text:"Continue with the swashbuckling run:",notes:["C2(7)","E2(11)","A1(4)","B1(6)","C2(7)","D2(9)","E2(11)","F2(12)","G2(14)","A2(16)"]},
+      {text:"Add Bell instrument (gold block) on the off-beats for the orchestral brass feel:",notes:["A2(16)","E2(11)","A2(16)","E2(11)"]},
+      {text:"The triumphant second phrase:",notes:["A2(16)","G2(14)","F2(12)","E2(11)","D2(9)","C2(7)","D2(9)","E2(11)","A1(4)"]},
+      {text:"Use 3-tick repeaters for the dotted-note rhythm that gives it the pirate feel.",notes:[]},
+    ]
+  },
+  {
+    title:"Happy Birthday",
+    meta:"Traditional • Instrument: Harp • Tempo: Slow — Great for beginners!",
+    steps:[
+      {text:"First line (Happy Birthday to you):",notes:["G1","G1","A1(4)","G1","C2(7)","B1(6)"]},
+      {text:"Second line (Happy Birthday to you):",notes:["G1","G1","A1(4)","G1","D2(9)","C2(7)"]},
+      {text:"Third line (Happy Birthday dear [name]):",notes:["G1","G1","G2(14)","E2(11)","C2(7)","B1(6)","A1(4)"]},
+      {text:"Final line (Happy Birthday to you):",notes:["F2(12)","F2(12)","E2(11)","C2(7)","D2(9)","C2(7)"]},
+      {text:"Use 4-tick repeaters between notes for the slow birthday song feel. Perfect starter project!",notes:[]},
+    ]
+  }
+];
+
+function loadSong(){
+  const s = songs[parseInt(document.getElementById('songSelect').value)];
+  let html = `<div class="song-title">${s.title}</div><div class="song-meta">${s.meta}</div><div class="song-steps">`;
+  s.steps.forEach((step, i) => {
+    html += `<div class="step"><div class="step-num">${i+1}</div><div class="step-text">${step.text}`;
+    if (step.notes.length > 0) {
+      html += `<div class="notes-row">${step.notes.map(n=>`<span class="note-pill">${n}</span>`).join('')}</div>`;
+    }
+    html += `</div></div>`;
+  });
+  html += `</div>`;
+  document.getElementById('songCard').innerHTML = html;
+}
+loadSong();
+
+function switchTab(id, btn){
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  btn.classList.add('active');
+}
+
+function copyLink(btn){
+  navigator.clipboard.writeText(window.location.href).then(()=>{
+    btn.textContent='✓ Copied!';
+    btn.style.cssText='background:rgba(0,255,136,.1);border-color:rgba(0,255,136,.25);color:#00ff88';
+    setTimeout(()=>{btn.textContent='📋 Copy Link';btn.style.cssText='';},2200);
+  });
+}
+function shareWA(){
+  const msg = encodeURIComponent('Bro found this free Minecraft note block music guide — actually useful: '+window.location.href+' 🎮🔥');
+  window.open('https://wa.me/?text='+msg,'_blank');
+}
+</script>
+</body>
+</html>
