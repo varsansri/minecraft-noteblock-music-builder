@@ -12,6 +12,19 @@
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Minecraft Note Block Music Builder","description":"Complete reference guide for Minecraft note blocks including all instruments, pitch notes, and famous song patterns.","url":"https://varsansri.github.io/minecraft-noteblock-music-builder/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0"}}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"How do note blocks work in Minecraft?","acceptedAnswer":{"@type":"Answer","text":"Minecraft note blocks are activated by Redstone power. Right-clicking a note block raises its pitch by one semitone. The instrument sound is determined by the block placed directly below the note block. Note blocks can produce 25 different pitches (notes 1–25) and 16 different instruments. They are the foundation of all Minecraft music builds."}},
+    {"@type":"Question","name":"What are all the Minecraft note block instruments?","acceptedAnswer":{"@type":"Answer","text":"Minecraft has 16 note block instruments: Harp (any default), Bass (wood planks), Snare Drum (sand/gravel), Hat (glass), Bass Drum (stone), Bell (gold block), Flute (clay), Chime (packed ice), Guitar (white wool), Xylophone (bone block), Iron Xylophone (iron block), Cow Bell (soul sand), Didgeridoo (pumpkin), Bit/Sync (emerald block), Banjo (hay bale), Pling (glowstone)."}},
+    {"@type":"Question","name":"How do I build a Minecraft note block song?","acceptedAnswer":{"@type":"Answer","text":"To build a Minecraft note block song: 1) Plan your song on paper using note numbers 1–25. 2) Place note blocks in sequence and right-click each one to set the correct pitch. 3) Connect them with Redstone repeaters to control timing. 4) Loop using a comparator clock. 5) Layer multiple instruments by running parallel tracks. This tool provides step-by-step patterns for famous songs."}},
+    {"@type":"Question","name":"What Minecraft note block songs can I build?","acceptedAnswer":{"@type":"Answer","text":"Popular Minecraft note block songs include: Megalovania (Undertale), Pirates of the Caribbean (Hans Zimmer), Super Mario Bros Theme, He's a Pirate, Happy Birthday, Sweden (Minecraft's own theme), Through the Fire and Flames, and virtually any melody. The note range covers 2 full octaves, making most popular melodies achievable."}},
+    {"@type":"Question","name":"What block do I put under a note block for piano sound?","acceptedAnswer":{"@type":"Answer","text":"Place any default block (dirt, stone, wood planks) under a note block for the Harp sound, which most closely resembles a piano or harp. For a xylophone sound, use bone block underneath. For a bell or chime, use gold block or packed ice respectively."}}
+  ]
+}
+</script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -98,6 +111,18 @@ h2{font-size:13px;color:var(--muted);font-weight:400;margin-top:4px}
 .sticky-btn{background:var(--accent);color:#000;font-weight:800;font-size:11px;padding:8px 14px;border-radius:8px;text-decoration:none;white-space:nowrap;-webkit-tap-highlight-color:transparent}
 footer{text-align:center;padding:12px;font-size:11px;color:var(--muted);opacity:.7}
 footer a{color:var(--accent);text-decoration:none}
+.faq-section{margin-top:8px;margin-bottom:4px}
+.faq-title{font-size:14px;font-weight:700;color:var(--muted);margin-bottom:12px;padding:0 2px}
+.faq-list{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.faq-item{background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.faq-item summary{padding:12px 16px;font-size:13px;font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;-webkit-tap-highlight-color:transparent}
+.faq-item summary::after{content:'›';font-size:18px;color:var(--accent);transition:transform .2s;flex-shrink:0;margin-left:8px}
+.faq-item[open] summary::after{transform:rotate(90deg)}
+.faq-item p{padding:0 16px 12px;font-size:12px;color:var(--muted);line-height:1.6}
+.seo-text{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-bottom:12px}
+.seo-text h2{font-size:14px;font-weight:700;margin-bottom:10px;color:var(--text)}
+.seo-text p{font-size:12px;color:var(--muted);line-height:1.65;margin-bottom:10px}
+.seo-text p:last-child{margin-bottom:0}
 </style>
 </head>
 <body>
@@ -157,6 +182,38 @@ footer a{color:var(--accent);text-decoration:none}
       <button class="sb wa" onclick="shareWA()">💬 WhatsApp</button>
     </div>
   </div>
+
+  <section class="faq-section">
+    <h2 class="faq-title">Minecraft Note Block Music — FAQ</h2>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>How do note blocks work in Minecraft?</summary>
+        <p>Right-click a note block to raise its pitch by one semitone (25 total notes). The instrument is determined by the block placed directly underneath. Power with Redstone to play. Connect multiple note blocks with repeaters for timing control.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What are all 16 Minecraft note block instruments?</summary>
+        <p>Harp (any block), Bass Guitar (wood planks), Bass Drum (stone), Snare (sand/gravel), Hi-hat (glass), Guitar (wool), Flute (clay), Bell (gold block), Chime (packed ice), Xylophone (bone block), Iron Xylophone (iron block), Cow Bell (soul sand), Didgeridoo (pumpkin), Bit/8-bit (emerald block), Banjo (hay bale), Pling (glowstone).</p>
+      </details>
+      <details class="faq-item">
+        <summary>What block goes under a note block for piano sound?</summary>
+        <p>Place any default block (dirt, stone, any block not on the specific list) under a note block for the Harp sound — the closest to piano. Use bone block for xylophone, gold block for bell, and packed ice for chime tones.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How do I build a song with note blocks in Minecraft?</summary>
+        <p>1) Plan your melody using note numbers 1–25. 2) Place note blocks and right-click each to set pitch. 3) Connect with Redstone repeaters (adjust ticks for tempo). 4) Loop with a comparator clock. 5) Layer multiple instruments on parallel tracks. The Songs tab above has step-by-step patterns for 5 famous songs.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What is the note range of Minecraft note blocks?</summary>
+        <p>Note blocks cover exactly 2 octaves — 25 notes from F#1 to F#3. Note 1 is the lowest (F#1), note 13 is middle F#2, and note 25 is the highest (F#3). Each right-click raises pitch by one semitone. To reset to lowest, break and replace the note block.</p>
+      </details>
+    </div>
+    <div class="seo-text">
+      <h2>Minecraft Note Block Music Builder — Complete Instrument & Song Guide</h2>
+      <p>Minecraft note blocks are one of the game's most powerful creative features — but most players never go beyond a single note or basic melody. This guide covers everything you need to build real music in Minecraft: all 16 instruments and the exact blocks that activate them, the complete 25-note pitch chart from F#1 to F#3, and step-by-step build patterns for five famous songs including Megalovania, Super Mario Bros, and Pirates of the Caribbean.</p>
+      <p>The key to Minecraft music is understanding Redstone timing. Each Redstone repeater tick equals 0.1 seconds. A standard melody runs at 2–3 ticks per note for an upbeat tempo, 4–5 ticks for a slower feel. Stacking multiple note block tracks in parallel lets you build chords, basslines, and drum rhythms simultaneously — creating full arrangements inside the game.</p>
+      <p>For complex builds, organize your tracks vertically: melody on top level, harmony in the middle, bass at ground level, and percussion as a separate horizontal track. Use different instruments on each layer for a full orchestral sound. Note block music is one of the most impressive things you can build in Minecraft — and this guide gives you all the tools to start from beginner to advanced.</p>
+    </div>
+  </section>
 
   <footer>Free Minecraft tools by <a href="https://t.me/DTB_Academy" target="_blank" rel="noopener">DTB Academy</a> · Not affiliated with Mojang</footer>
 </div>
